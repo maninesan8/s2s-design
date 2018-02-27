@@ -1,0 +1,18 @@
+{
+  "mramanathan": {
+    "username": "mramanathan",
+    "password": "fp123",
+    "userType": "admin",
+    "firstName": "maninesan",
+    "lastName": "ramanathan"
+  },
+  "mramanathan1": {
+    "username": "mramanathan1",
+    "password": "fp123",
+    "userType": "customer",
+    "firstName": "maninesan",
+    "lastName": "ramanathan",
+    "company": "fp",
+    "email": "maninesan8@gmail.com"
+  }
+}
