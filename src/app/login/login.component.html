@@ -7,7 +7,7 @@
       {{loginForm.errors.message}}
     </div>
 
-    <div [ngClass]="{'form-group': true, 'has-danger' : username.invalid}">
+    <div [ngClass]="{'form-group': true, 'has-danger' : username.touched && username.invalid}">
       <input type="text" id="username" formControlName="username" class="form-control form-control-lg"
              placeholder="enter username">
       <div class="form-control-feedback" *ngIf="username.touched && username.invalid && username.errors.required">
@@ -17,7 +17,7 @@
         username should start with alpha
       </div>
     </div>
-    <div [ngClass]="{'form-group' : true, 'has-danger' : password.invalid}">
+    <div [ngClass]="{'form-group' : true, 'has-danger' : password.touched && password.invalid}">
       <input type="password" id="password" formControlName="password" class="form-control form-control-lg"
              placeholder="enter password">
       <div class="form-control-feedback" *ngIf="password.touched && password.invalid && password.errors.required">
