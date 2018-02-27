@@ -1,0 +1,35 @@
+<div class="container-fluid d-flex flex-column">
+  <form class="col-lg-3 col-md-6 col-sm-10 col-xs-12" [formGroup]="loginForm" #f='ngForm' (ngSubmit)="signIn(f.value)">
+    <div class="col-xs-12 text-center logo">
+      <img src="assets/images/s2s.logo.jpg">
+    </div>
+    <div class="text-danger alert" *ngIf="loginForm.errors">
+      {{loginForm.errors.message}}
+    </div>
+
+    <div [ngClass]="{'form-group': true, 'has-danger' : username.invalid}">
+      <input type="text" id="username" formControlName="username" class="form-control form-control-lg"
+             placeholder="enter username">
+      <div class="form-control-feedback" *ngIf="username.touched && username.invalid && username.errors.required">
+        username is required
+      </div>
+      <div class="form-control-feedback" *ngIf="username.touched && username.invalid && username.errors.pattern">
+        username should start with alpha
+      </div>
+    </div>
+    <div [ngClass]="{'form-group' : true, 'has-danger' : password.invalid}">
+      <input type="password" id="password" formControlName="password" class="form-control form-control-lg"
+             placeholder="enter password">
+      <div class="form-control-feedback" *ngIf="password.touched && password.invalid && password.errors.required">
+        Password is required
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-lg form-control-lg btn-primary btn-block" [disabled]="!loginForm.valid" >Login</button>
+    </div>
+    <div class="form-group links">
+      <a routerLink="/fgtPassword" class="float-left">Forgot your password?</a>
+      <a routerLink="/register" class="float-right">Register</a>
+    </div>
+  </form>
+</div>

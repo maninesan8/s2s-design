@@ -1,0 +1,40 @@
+html, body {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+div.container-fluid {
+  height: 100%;
+  background-color: #ffffff;
+}
+
+form {
+  margin: auto;
+}
+
+.logo {
+  margin-top: -8em;
+  margin-bottom: 2em;
+
+  img {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+label {
+  font-size: 1.2em;
+}
+
+button[type='submit'] {
+  margin-top: 2em;
+}
+
+.reg-msg {
+  color: #008000;
+  font-size: 2em;
+}
+
+.container-fluid {
+  height: 92% !important;
+}

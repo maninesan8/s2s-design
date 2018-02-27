@@ -1,0 +1,40 @@
+<div class="col-lg-10 col-md-9 cnt-provision">
+  <div class="col-xs-12">
+
+    <!--Search Bar to pipes requests -->
+    <div class="form-inline search-ctr">
+      <label for="search-prov">Search Provision</label>
+      <input class="form-control" id="search-prov" type="text" placeholder="location, status, type, dates" aria-label="Search"
+             [(ngModel)]="searchText">
+    </div>
+
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <th>#</th>
+        <th>Provisioning Location</th>
+        <th>Date Created</th>
+        <th>Current status</th>
+        <th>Date Modified</th>
+        <th>Service Type Preferred</th>
+        <th>Bandwidth Required</th>
+        <th>Action</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let provision of provisions | search: searchText" app-provision [provision]='provision'></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Pagination -->
+    <br>
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>

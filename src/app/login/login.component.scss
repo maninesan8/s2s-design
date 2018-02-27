@@ -1,0 +1,35 @@
+html, body {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+div.container-fluid {
+  height: 100%;
+  background-color: #ffffff;
+}
+
+form {
+  margin: auto;
+}
+
+.btn, input {
+  border-radius: 0 !important;
+  box-shadow: none;
+}
+
+.logo {
+  margin-top: -11em;
+  margin-bottom: 2em;
+
+  img {
+    height: 190px;
+    width: 221px;
+  }
+}
+.links{
+  font-size: 1.2em;
+}
+
+.container-fluid {
+  height: 92% !important;
+}

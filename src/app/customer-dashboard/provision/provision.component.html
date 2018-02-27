@@ -1,0 +1,10 @@
+<td>{{provision.id}}</td>
+<td>{{provision.location.addressLine1}}</td>
+<td>{{provision.dateCreated}}</td>
+<td>{{provision.status}}</td>
+<td>{{provision.dateModified}}</td>
+<td>{{provision.preferredServiceType}}</td>
+<td>{{provision.bandwidth}}</td>
+<td>
+  <button class="btn btn-outline-primary btn-sm" (click)="goToProvision(provision.id)">Track</button>
+</td>

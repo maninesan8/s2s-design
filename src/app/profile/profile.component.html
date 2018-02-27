@@ -1,0 +1,32 @@
+<div class="col-xs-12 cnt-profile" *ngIf="user">
+  <div class="card">
+    <img class="card-img-top" src="assets/images/user_profile.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{user.username}}</h5>
+      <div class="card-text">
+        <div class="row">
+          <div class="col-md-4 text-right no-pam">First Name:</div>
+          <div class="col-md-7 push-md-1 text-left no-pam">{{user.firstName}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-right no-pam">Last Name:</div>
+          <div class="col-md-7 push-md-1 text-left no-pam">{{user.lastName}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-right no-pam">email:</div>
+          <div class="col-md-7 push-md-1 text-left no-pam">{{user.email}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-right no-pam">Company:</div>
+          <div class="col-md-7 push-md-1 text-left no-pam">{{user.company}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <a class="btn btn-sm btn-primary edit-link" href="#">edit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
