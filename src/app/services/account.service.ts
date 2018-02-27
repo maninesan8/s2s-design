@@ -7,13 +7,11 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AccountService {
 
-  endpoint = 'http://localhost:4200/';
-
   constructor(private _http: HttpClient) {
   }
 
   login(credentials) {
-    return this._http.post(this.endpoint + 'api/authenticate', JSON.stringify(credentials)).map((response: any) => {
+    return this._http.post('/api/authenticate', JSON.stringify(credentials)).map((response: any) => {
       if (response && response.token) {
         localStorage.setItem('apiToken', response.token);
         localStorage.setItem('currentUser', JSON.stringify(response.user));
@@ -25,11 +23,11 @@ export class AccountService {
   }
 
   registerUser(userInfo) {
-    return this._http.post(this.endpoint + 'api/user', JSON.stringify(userInfo));
+    return this._http.post('/api/user', JSON.stringify(userInfo));
   }
 
   getUserDetail(username) {
-    return this._http.get(this.endpoint + 'api/user/' + username);
+    return this._http.get('/api/user/' + username);
   }
 
 

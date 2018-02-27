@@ -9,6 +9,7 @@ import {ProvisionService} from '../../services/provision.service';
 export class ProvisionsComponent implements OnInit {
 
   provisions;
+  searchText;
   @Input('username') username;
 
   constructor(private _provisionService: ProvisionService) {

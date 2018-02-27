@@ -11,11 +11,11 @@ export class ProvisionService {
   }
 
   getProvisions(username) {
-    return this._http.get('http://localhost:4200/assets/data/provisions.json');
+    return this._http.get('/assets/data/provisions.json');
   }
 
   getProvision(provisionId): Observable<any> {
-    return this._http.get('http://localhost:4200/assets/data/provisions.json').map((resp: any[]) => {
+    return this._http.get('/assets/data/provisions.json').map((resp: any[]) => {
       const selProv = resp.filter(prov => prov.id == provisionId);
       if (selProv) {
         return selProv[0];
