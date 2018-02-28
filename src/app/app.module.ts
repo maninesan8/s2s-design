@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AccountService} from './services/account.service';
+import {UserService} from './services/user.service';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
@@ -20,9 +20,17 @@ import {ProfileComponent} from './profile/profile.component';
 import {ProvisionsComponent} from './customer-dashboard/provisions/provisions.component';
 import {ProvisionService} from './services/provision.service';
 import {ProvisionComponent} from './customer-dashboard/provision/provision.component';
-import { SearchPipe } from './common/pipes/search.pipe';
-import { ProvisionDetailComponent } from './customer-dashboard/provision-detail/provision-detail.component';
-import { StatusWizardComponent } from './customer-dashboard/status-wizard/status-wizard.component';
+import {SearchPipe} from './common/pipes/search.pipe';
+import {ProvisionDetailComponent} from './customer-dashboard/provision-detail/provision-detail.component';
+import {StatusWizardComponent} from './customer-dashboard/status-wizard/status-wizard.component';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AuthService} from './services/auth.service';
+import {AuthGuardService} from './services/auth-guard.service';
+import {OrderModule} from 'ngx-order-pipe';
+import { AddressPipe } from './common/pipes/address.pipe';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -41,16 +49,21 @@ import { StatusWizardComponent } from './customer-dashboard/status-wizard/status
     ProvisionComponent,
     SearchPipe,
     ProvisionDetailComponent,
-    StatusWizardComponent
+    StatusWizardComponent,
+    AddressPipe,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AppRoutingModule,
+    OrderModule
   ],
-  providers: [AccountService, ProvisionService, tokenProvider, mockAPIProvider],
+  providers: [AuthService, UserService, AuthGuardService, ProvisionService, tokenProvider, mockAPIProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule {

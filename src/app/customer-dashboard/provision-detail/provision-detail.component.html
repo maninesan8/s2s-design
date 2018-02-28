@@ -1,5 +1,13 @@
 <section>
   <app-status-wizard [status]="provision.status"></app-status-wizard>
+  <div class="row btn-grp">
+    <button type="button" class="btn btn-default" aria-label="Left Align" (click)="goBack()">
+      <span class="fa fa-arrow-left fa-lg" aria-hidden="true"></span>Back
+    </button>
+    <button type="button" class="btn btn-primary" aria-label="Left Align">
+      <span class="fa fa-save fa-lg" aria-hidden="true"></span>Save
+    </button>
+  </div>
   <form class="container-fluid">
     <div class="row">
       <div class="col-lg-4 col-md-6">

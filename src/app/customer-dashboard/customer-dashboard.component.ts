@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {AccountService} from '../services/account.service';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-customer-dashboard',
@@ -11,7 +11,7 @@ export class CustomerDashboardComponent implements OnInit {
 
   username;
 
-  constructor(private _route: ActivatedRoute, private _accountService: AccountService) {
+  constructor(private _route: ActivatedRoute, private _accountService: UserService) {
   }
 
   ngOnInit() {

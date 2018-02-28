@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ProvisionService} from '../../services/provision.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-provisions',
@@ -8,20 +9,25 @@ import {ProvisionService} from '../../services/provision.service';
 })
 export class ProvisionsComponent implements OnInit {
 
+  @Input('username') username;
+  origProvisions;
   provisions;
   searchText;
-  @Input('username') username;
+  order;
+  reverse = false;
 
-  constructor(private _provisionService: ProvisionService) {
+  constructor(private _provisionService: ProvisionService, private _router: Router, private _routes: ActivatedRoute) {
   }
 
   ngOnInit() {
     this._provisionService.getProvisions(this.username).subscribe((data) => {
-      this.provisions = data;
-      console.log(this.provisions);
+      this.origProvisions = data;
+      this.provisions = this.origProvisions;
     }, (error2 => {
       console.log(error2);
     }));
   }
-
+  goToProvision(provisionId) {
+    this._router.navigate(['./', provisionId], {relativeTo: this._routes});
+  }
 }

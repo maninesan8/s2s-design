@@ -5,24 +5,12 @@ import {of} from 'rxjs/observable/of';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class AccountService {
+export class UserService {
 
   constructor(private _http: HttpClient) {
   }
 
-  login(credentials) {
-    return this._http.post('/api/authenticate', JSON.stringify(credentials)).map((response: any) => {
-      if (response && response.token) {
-        localStorage.setItem('apiToken', response.token);
-        localStorage.setItem('currentUser', JSON.stringify(response.user));
-        return response.user;
-      } else {
-        return null;
-      }
-    });
-  }
-
-  registerUser(userInfo) {
+  addUser(userInfo) {
     return this._http.post('/api/user', JSON.stringify(userInfo));
   }
 

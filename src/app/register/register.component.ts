@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {GlobalValidator} from '../common/validator/GlobalValidator';
-import {AccountService} from '../services/account.service';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   registered = false;
   userType: string = null;
 
-  constructor(private _accountService: AccountService) {
+  constructor(private _accountService: UserService) {
   }
 
   registerForm = new FormGroup({
@@ -21,14 +21,16 @@ export class RegisterComponent implements OnInit {
     lastName: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z]*$')]),
     email: new FormControl('', [Validators.required, GlobalValidator.emailFormat]),
     password: new FormControl('', [Validators.required]),
-    confirmPassword: new FormControl('', [Validators.required])
+    confirmPassword: new FormControl('', [Validators.required]),
+    type: new FormControl('customer', [Validators.required]),
+    company: new FormControl()
   });
 
   ngOnInit() {
   }
 
   registerUser(userInfo) {
-    this._accountService.registerUser(userInfo).subscribe((response: any) => {
+    this._accountService.addUser(userInfo).subscribe((response: any) => {
       if (response && response.type === 'customer') {
         this.registered = true;
         this.userType = response.type;
@@ -63,4 +65,11 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('confirmPassword');
   }
 
+  get type() {
+    return this.registerForm.get('type');
+  }
+
+  get company() {
+    return this.registerForm.get('company');
+  }
 }

@@ -7,11 +7,10 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/materialize';
 import 'rxjs/add/operator/dematerialize';
+import {AngularFireDatabase} from 'angularfire2/database';
 
 @Injectable()
 export class MockAPIService implements HttpInterceptor {
-
-
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -19,15 +18,12 @@ export class MockAPIService implements HttpInterceptor {
     return Observable.of(null).mergeMap(() => {
       // Authenticates the user for login
       if (req.url.endsWith('api/authenticate') && req.method === 'POST') {
-        const cred = JSON.parse(req.body);
+        const cred = req.body;
         const filteredUser = users.filter(user => user.username === cred.username && user.password === cred.password);
         if (filteredUser.length) {
           const user = filteredUser[0];
-          const body = {
-            user: user,
-            token: 's2s-token'
-          };
-          return Observable.of(new HttpResponse({status: 200, body: body}));
+          user.token = 's2s-token';
+          return Observable.of(new HttpResponse({status: 200, body: user}));
         } else {
           return Observable.throw('No matching user found for given username. Please verify the username and try again.');
         }

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProvisionService} from '../../services/provision.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-provision-detail',
@@ -12,7 +13,10 @@ export class ProvisionDetailComponent implements OnInit {
   provisionId;
   provision;
 
-  constructor(private _routes: ActivatedRoute, private _router: Router, private _provisionService: ProvisionService) {
+  constructor(private _routes: ActivatedRoute,
+              private _router: Router,
+              private _provisionService: ProvisionService,
+              private _location: Location) {
   }
 
   ngOnInit() {
@@ -24,5 +28,8 @@ export class ProvisionDetailComponent implements OnInit {
     });
   }
 
+  goBack() {
+    this._location.back();
+  }
 
 }

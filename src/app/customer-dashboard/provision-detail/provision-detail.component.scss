@@ -14,8 +14,17 @@
 .work-log-hdr, .work-log {
   margin: 1em 0;
 
-  p{
+  p {
     margin-top: 1em;
   }
 }
 
+.btn-grp {
+  margin: 2em 0;
+  :hover {
+    cursor: pointer;
+  }
+  button {
+    margin-right: 3em;
+  }
+}

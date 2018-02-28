@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AccountService} from '../services/account.service';
+import {UserService} from '../services/user.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../services/auth.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _accountService: AccountService, private _router: Router) {
+  constructor(private _authService: AuthService, private _router: Router) {
   }
 
   loginForm = new FormGroup({
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   signIn(credentials) {
-    this._accountService.login(credentials).subscribe((user) => {
+    this._authService.login(credentials).subscribe((user) => {
       console.log(user);
       if (user && user.type === 'customer') {
         this._router.navigate(['cdash', user.username]);

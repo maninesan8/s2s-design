@@ -75,7 +75,22 @@
              *ngIf="confirmPassword.touched && confirmPassword.invalid && confirmPassword.errors.required">
           Password is required
         </div>
+      </div>
 
+      <div [ngClass]="{'form-group': true, 'form-inline': true,'has-danger' : type.touched && type.invalid}">
+        <label for="password" class="col-md-3">Customer Type :</label>
+        <select formControlName="type" id="type" class="form-control form-control-lg col-md-6">
+          <option value="customer">customer</option>
+          <option value="admin">admin</option>
+        </select>
+      </div>
+
+      <div [ngClass]="{'form-group': true, 'form-inline': true,'has-danger' : company.touched && company.invalid}"
+           *ngIf="type.value === 'customer'">
+        <label for="company" class="col-md-3">Company :</label>
+        <input type="text" id="company" formControlName="company"
+               class="form-control form-control-lg col-md-6"
+               placeholder="enter company name">
       </div>
 
       <div class="form-group col-md-4 offset-md-4">

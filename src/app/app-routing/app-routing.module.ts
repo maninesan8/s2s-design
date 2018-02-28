@@ -10,6 +10,7 @@ import {AdminDashboardComponent} from '../admin-dashboard/admin-dashboard.compon
 import {RegisterComponent} from '../register/register.component';
 import {ProvisionsComponent} from '../customer-dashboard/provisions/provisions.component';
 import {ProvisionDetailComponent} from '../customer-dashboard/provision-detail/provision-detail.component';
+import {AuthGuardService} from '../services/auth-guard.service';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -20,11 +21,11 @@ const appRoutes: Routes = [
     path: 'cdash/:username', component: CustomerDashboardComponent, children: [
       {path: '', redirectTo: 'provisions', pathMatch: 'full'},
       {path: 'provisions', component: ProvisionsComponent},
-      {path: 'provisions/:id', component: ProvisionDetailComponent}
-    ]
+      {path: 'provisions/:id', component: ProvisionDetailComponent},
+      {path: 'provision/create', component: ProvisionCreateComponent}
+    ], canActivate: [], data: {roles: ['customer']}
   },
-  {path: 'adash/:username', component: AdminDashboardComponent},
-  {path: 'provision/create', component: ProvisionCreateComponent},
+  {path: 'adash/:username', component: AdminDashboardComponent, canActivate: [AuthGuardService], data: {roles: ['admin']}},
   {path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 

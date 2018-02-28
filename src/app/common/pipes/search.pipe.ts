@@ -15,7 +15,6 @@ export class SearchPipe implements PipeTransform {
     }
     searchText = searchText.toLowerCase();
     return values.filter(value => {
-      console.log(value);
       const jsonStr = JSON.stringify(value).toLowerCase();
       return jsonStr.indexOf(searchText) !== -1;
     });

@@ -1,5 +1,5 @@
 <td>{{provision.id}}</td>
-<td>{{provision.location.addressLine1}}</td>
+<td [innerHTML]='provision.location | address'></td>
 <td>{{provision.dateCreated}}</td>
 <td>{{provision.status}}</td>
 <td>{{provision.dateModified}}</td>

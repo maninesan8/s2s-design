@@ -2,6 +2,8 @@
 @import 'assets/variable';
 @import '~bootstrap/scss/bootstrap';
 
+$fa-font-path: "../node_modules/font-awesome/fonts";
+@import '../node_modules/font-awesome/scss/font-awesome';
 html, body {
   height: 100% !important;
   width: 100% !important;
@@ -10,4 +12,10 @@ html, body {
 .no-pam {
   padding: 0 !important;
   margin: 0 !important;
+}
+
+button {
+  span.fa {
+    margin-right: .8em;
+  }
 }

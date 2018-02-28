@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {GlobalValidator} from '../common/validator/GlobalValidator';
-import {AccountService} from '../services/account.service';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -10,7 +10,7 @@ import {AccountService} from '../services/account.service';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor(private accountService: AccountService) {
+  constructor(private accountService: UserService) {
   }
 
   response: any = {};
