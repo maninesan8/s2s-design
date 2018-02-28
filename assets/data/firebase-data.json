@@ -1,0 +1,125 @@
+{
+  "users": {
+    "mramanathan": {
+      "username": "mramanathan",
+      "password": "fp123",
+      "type": "admin",
+      "firstName": "maninesan",
+      "lastName": "ramanathan"
+    },
+    "mramanathan1": {
+      "username": "mramanathan1",
+      "password": "fp123",
+      "type": "customer",
+      "firstName": "maninesan",
+      "lastName": "ramanathan",
+      "company": "Gibi Systems",
+      "email": "maninesan8@gmail.com"
+    }
+  },
+  "provisions": [
+    {
+      "id": 1,
+      "username": "mramanathan1",
+      "company": "GIBI Systems",
+      "location": {
+        "addressLine1": "2442 courtney oaks rd",
+        "addressLine2": "suite# 123",
+        "city": "charlotte",
+        "state": "NC",
+        "postalCode": "28217",
+        "country": "USA"
+      },
+      "status": "Prequal Request",
+      "bandwidth": "10",
+      "dateCreated": "18-12-2017",
+      "dateModified": "01-02-2018",
+      "preferredServiceType": "permanent",
+      "workLogs": [
+        {
+          "createdDate": "21-12-2017",
+          "comment": "xyz",
+          "createdBy": "psrinivasan"
+        },
+        {
+          "createdDate": "25-12-2017",
+          "comment": "xyz",
+          "createdBy": "deepak"
+        },
+        {
+          "createdDate": "28-12-2017",
+          "comment": "xyz",
+          "createdBy": "kravichandran"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "username": "mramanathan1",
+      "location": {
+        "addressLine1": "640 parkaire ln",
+        "addressLine2": "suite# 808",
+        "city": "charlotte",
+        "state": "NC",
+        "postalCode": "28217",
+        "country": "USA"
+      },
+      "status": "Quote Provided",
+      "bandwidth": "22",
+      "dateCreated": "18-11-2017",
+      "dateModified": "02-12-2017",
+      "preferredServiceType": "permanent"
+    },
+    {
+      "id": 3,
+      "username": "mramanathan1",
+      "location": {
+        "addressLine1": "957 atlantic ave",
+        "addressLine2": "suite# c",
+        "city": "chicago",
+        "state": "IL",
+        "postalCode": "60169",
+        "country": "USA"
+      },
+      "status": "Order Received",
+      "bandwidth": "19",
+      "dateCreated": "10-12-2017",
+      "dateModified": "01-01-2018",
+      "preferredServiceType": "permanent"
+    },
+    {
+      "id": 4,
+      "username": "mramanathan1",
+      "location": {
+        "addressLine1": "6270 courtney park rd",
+        "addressLine2": "suite# 7109",
+        "city": "charlotte",
+        "state": "NC",
+        "postalCode": "28217",
+        "country": "USA"
+      },
+      "status": "Order Placed with ISP",
+      "bandwidth": "2",
+      "dateCreated": "18-12-2017",
+      "dateModified": "01-02-2018",
+      "preferredServiceType": "permanent"
+    },
+    {
+      "id": 5,
+      "username": "mramanathan1",
+      "location": {
+        "addressLine1": "2080 hassel rd",
+        "addressLine2": "suite# 609",
+        "city": "hoffman estates",
+        "state": "IL",
+        "postalCode": "60169",
+        "country": "USA"
+      },
+      "status": "Circuit Installed",
+      "bandwidth": "29",
+      "dateCreated": "01-01-2018",
+      "dateModified": "01-06-2018",
+      "preferredServiceType": "permanent"
+    }
+  ]
+}

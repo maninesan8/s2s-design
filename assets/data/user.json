@@ -1,0 +1,20 @@
+{
+  "users": {
+    "mramanathan": {
+      "username": "mramanathan",
+      "password": "fp123",
+      "type": "admin",
+      "firstName": "maninesan",
+      "lastName": "ramanathan"
+    },
+    "mramanathan1": {
+      "username": "mramanathan1",
+      "password": "fp123",
+      "type": "customer",
+      "firstName": "maninesan",
+      "lastName": "ramanathan",
+      "company": "Gibi Systems",
+      "email": "maninesan8@gmail.com"
+    }
+  }
+}
