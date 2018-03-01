@@ -21,9 +21,9 @@ const appRoutes: Routes = [
     path: 'cdash/:username', component: CustomerDashboardComponent, children: [
       {path: '', redirectTo: 'provisions', pathMatch: 'full'},
       {path: 'provisions', component: ProvisionsComponent},
-      {path: 'provisions/:id', component: ProvisionDetailComponent},
-      {path: 'provision/create', component: ProvisionCreateComponent}
-    ], canActivate: [], data: {roles: ['customer']}
+      {path: 'provisions/detail/:id', component: ProvisionDetailComponent},
+      {path: 'provisions/create', component: ProvisionCreateComponent}
+    ], canActivate: [AuthGuardService], data: {roles: ['customer']}
   },
   {path: 'adash/:username', component: AdminDashboardComponent, canActivate: [AuthGuardService], data: {roles: ['admin']}},
   {path: '', redirectTo: '/login', pathMatch: 'full'}

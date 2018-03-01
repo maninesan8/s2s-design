@@ -18,7 +18,9 @@ export class ProvisionsComponent implements OnInit {
   order;
   reverse = false;
 
-  constructor(private _provisionService: ProvisionService, private _router: Router, private _routes: ActivatedRoute) {
+  constructor(private _provisionService: ProvisionService,
+              private _router: Router,
+              private _routes: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -32,7 +34,11 @@ export class ProvisionsComponent implements OnInit {
   }
 
   goToProvision(provisionId) {
-    this._router.navigate(['./', provisionId], {relativeTo: this._routes});
+    this._router.navigate(['./detail/', provisionId], {relativeTo: this._routes});
+  }
+
+  goToCreateProvision() {
+    this._router.navigate(['./create'], {relativeTo: this._routes});
   }
 
   updatePage(page) {

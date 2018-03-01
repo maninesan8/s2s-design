@@ -1,3 +1,101 @@
-<p>
-  provision-create works!
-</p>
+<section>
+  <div class="row">
+    <div class="col-xs-12 h4"> Create Provision</div>
+  </div>
+  <form class="container-fluid frm" [formGroup]="provisionCreateForm">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="form-group">
+          <label for="company_name">Company Name</label>
+          <input type="text" class="form-control" formControlName="company" id="company_name" readonly>
+        </div>
+        <div class="form-group">
+          <label for="address-l1">Address Line1</label>
+          <input type="text" class="form-control" formControlName="addressLine1" id="address-l1">
+        </div>
+        <div class="form-group">
+          <label for="address-l2">Address Line2</label>
+          <input type="text" class="form-control" formControlName="addressLine2" id="address-l2">
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" class="form-control" formControlName="city" id="city">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="city">State</label>
+              <select class="form-control" [formControlName]="state">
+                <option>Select State</option>
+                <option value="NC">NC</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="postal-code">Postal Code</label>
+          <input type="text" class="form-control" formControlName="postalCode" id="postal-code"
+          >
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" class="form-control form-control" id="country" formControlName="country">
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="form-group">
+          <label for="date_created">Date Created</label>
+          <input type="text" class="form-control" formControlName="dateCreated" id="date_created" readonly>
+        </div>
+        <div class="form-group">
+          <label for="created_by">Date Modified</label>
+          <input type="text" class="form-control" id="created_by" formControlName="dateModified" readonly>
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select class="form-control" [formControlName]="status" id="status">
+            <option>Select Service</option>
+            <option value="permanent">Managed Broadband Service</option>
+            <option value="permanent">Bring Your Own Broadband</option>
+            <option value="permanent">Managed Network Service</option>
+            <option value="permanent">Managed WiFi Service</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="user_id">userId</label>
+          <input type="text" class="form-control" id="user_id" formControlName="userId" readonly>
+        </div>
+        <div class="form-group">
+          <label for="service_type">Service Type Preferred</label>
+          <select class="form-control form-control" id="service_type" [formControlName]="serviceTypePreferred">
+            <option>Select Service</option>
+            <option value="permanent">Managed Broadband Service</option>
+            <option value="permanent">Bring Your Own Broadband</option>
+            <option value="permanent">Managed Network Service</option>
+            <option value="permanent">Managed WiFi Service</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bandwidth">Bandwidth Required</label>
+          <input type="text" class="form-control" id="bandwidth" formControlName="bandwidthRequired">
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <label for="work-log">Work Log Information</label>
+        <textarea class="form-control" formControlName="workLog" id="work-log" rows="3"></textarea>
+      </div>
+    </div>
+    <div class="row btn-grp">
+      <div class="col-xs-12 text-center">
+        <button type="button" class="btn btn-default" aria-label="Left Align" (click)="goBack()">
+          <span class="fa fa-times-circle-o fa-lg" aria-hidden="true"></span>Cancel
+        </button>
+        <button type="button" class="btn btn-primary" aria-label="Left Align">
+          <span class="fa fa-save fa-lg" aria-hidden="true"></span>Save
+        </button>
+      </div>
+    </div>
+  </form>
+</section>
