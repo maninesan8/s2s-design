@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ProvisionService} from '../../services/provision.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-provisions',
@@ -13,6 +14,7 @@ export class ProvisionsComponent implements OnInit {
   origProvisions;
   provisions;
   searchText;
+  page;
   order;
   reverse = false;
 
@@ -23,11 +25,18 @@ export class ProvisionsComponent implements OnInit {
     this._provisionService.getProvisions(this.username).subscribe((data) => {
       this.origProvisions = data;
       this.provisions = this.origProvisions;
+      this.page = {start: 0, end: environment.provision.pageCount - 1};
     }, (error2 => {
       console.log(error2);
     }));
   }
+
   goToProvision(provisionId) {
     this._router.navigate(['./', provisionId], {relativeTo: this._routes});
   }
+
+  updatePage(page) {
+    this.page = page;
+  }
+
 }

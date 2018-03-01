@@ -7,6 +7,10 @@
       <input class="form-control" id="search-prov" type="text" placeholder="location, status, type, dates"
              aria-label="Search"
              [(ngModel)]="searchText">
+
+      <button class="btn btn-primary crt-prv">
+        <span class="fa fa-list"></span>Create Provision
+      </button>
     </div>
 
     <div class="table-responsive" *ngIf="provisions">
@@ -25,13 +29,14 @@
         <th>Action</th>
         </thead>
         <tbody>
-        <tr *ngFor="let provision of provisions|search: searchText" app-provision
+        <tr *ngFor="let provision of provisions|search: searchText|pagination : page" app-provision
             [provision]='provision' class="prvs-row" (click)="goToProvision(provision.id)"></tr>
         </tbody>
       </table>
     </div>
     <!-- Pagination -->
     <br>
-    <app-pagination [size]="provisions.length" *ngIf="provisions"></app-pagination>
+    <app-pagination [size]="origProvisions.length" [currentPage]="page" *ngIf="origProvisions"
+                    (pageChange)="updatePage($event)"></app-pagination>
   </div>
 </div>

@@ -31,6 +31,8 @@ import {AuthGuardService} from './services/auth-guard.service';
 import {OrderModule} from 'ngx-order-pipe';
 import { AddressPipe } from './common/pipes/address.pipe';
 import { PaginationComponent } from './pagination/pagination.component';
+import { PaginationPipe } from './common/pipes/pagination.pipe';
+import { TitlecasePipe } from './common/pipes/titlecase.pipe';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { PaginationComponent } from './pagination/pagination.component';
     ProvisionDetailComponent,
     StatusWizardComponent,
     AddressPipe,
-    PaginationComponent
+    PaginationComponent,
+    PaginationPipe,
+    TitlecasePipe
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     AppRoutingModule,
     OrderModule
   ],
-  providers: [AuthService, UserService, AuthGuardService, ProvisionService, tokenProvider, mockAPIProvider],
+  providers: [AuthService, UserService, AuthGuardService, ProvisionService, tokenProvider, mockAPIProvider, PaginationPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {environment} from '../../environments/environment';
 
 @Component({
@@ -9,7 +9,9 @@ import {environment} from '../../environments/environment';
 export class PaginationComponent implements OnInit {
 
   @Input('size') size;
+  @Output('pageChange') pageChange = new EventEmitter();
   pages;
+  @Input('currentPage') currentPage;
 
   constructor() {
   }
@@ -26,14 +28,12 @@ export class PaginationComponent implements OnInit {
         startIndex = endIndex + 1;
         endIndex = endIndex + pageCnt;
       }
-      this.pages.push({startIndex: startIndex, endIndex: this.size - 1, pageNum: ++pageNum});
+      this.pages.push({start: startIndex, end: this.size - 1, pageNum: ++pageNum});
     }
+    console.log(this.pages);
   }
 
-  logData(page) {
-    console.log(page);
-  }
-
-  goToPage(startIndex, endIndex) {
+  goToPage(page) {
+    this.pageChange.emit({start: page.startIndex, end: page.endIndex});
   }
 }

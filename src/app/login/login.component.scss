@@ -1,35 +1,18 @@
-html, body {
-  height: 100% !important;
-  width: 100% !important;
+.card-img-top {
+  width: 160px;
+  height: 145px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-div.container-fluid {
-  height: 100%;
-  background-color: #ffffff;
+
+.card-img-top {
+  width: 160px;
+  height: 145px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-form {
-  margin: auto;
-}
-
-.btn, input {
-  border-radius: 0 !important;
-  box-shadow: none;
-}
-
-.logo {
-  margin-top: -11em;
-  margin-bottom: 2em;
-
-  img {
-    height: 190px;
-    width: 221px;
-  }
-}
-.links{
-  font-size: 1.2em;
-}
-
-.container-fluid {
-  height: 92% !important;
+.login-txt{
+  margin: 1em 0;
 }

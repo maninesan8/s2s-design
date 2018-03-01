@@ -1,7 +1,6 @@
 <nav aria-label="Page navigation">
   <ul class="pagination">
-    <li class="page-item"><a class="page-link">Previous</a></li>
-    <li class="page-item" *ngFor="let page of pages"><a class="page-link">{{page.pageNum}}</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    <li ngClass="{'page-item':true, 'active': page.pageNum === currentPage.pageNum}" *ngFor="let page of pages">
+      <a class="page-link" (click)="goToPage(page)">{{page.pageNum}}</a></li>
   </ul>
 </nav>
