@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {AuthService} from './auth.service';
 import 'rxjs/add/operator/map';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
@@ -12,6 +13,9 @@ export class AuthGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const roles = route.data['roles'] as Array<string>;
 
+    if (!environment.production) {
+      return true;
+    }
     if (this._auth.isLoggedIn(roles)) {
       return true;
     }

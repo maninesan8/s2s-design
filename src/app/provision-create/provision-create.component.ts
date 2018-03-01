@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-provision-create',
@@ -8,7 +9,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class ProvisionCreateComponent implements OnInit {
 
-  constructor() {
+  constructor(private _location: Location) {
   }
 
   provisionCreateForm = new FormGroup({
@@ -83,5 +84,9 @@ export class ProvisionCreateComponent implements OnInit {
 
   get bandwidthRequired() {
     return this.provisionCreateForm.get('bandwidthRequired');
+  }
+
+  goBack() {
+    this._location.back();
   }
 }

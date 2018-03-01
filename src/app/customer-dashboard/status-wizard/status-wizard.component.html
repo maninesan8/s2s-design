@@ -1,11 +1,11 @@
 <div class="row wizard-cntr">
-  <div class="col-lg-10 push-lg-1">
+  <div class="col-md-12">
+    <div class="line row"></div>
     <div class="row">
       <ng-template ngFor let-status [ngForOf]="statuses" let-index="index" let-first="first">
         <div class="col-lg-2">
-          <div class="line" *ngIf="first"></div>
-          <div [ngClass]="{'status-circle':true, 'status-active': status.isActive}">
-            <span [innerHTML]="status.text"></span>
+          <div [ngClass]="{'col-md-12':true,'status-circle':true, 'status-active': status.isActive}">
+            <div class="status-txt" [innerHTML]="status.text"></div>
           </div>
         </div>
       </ng-template>
