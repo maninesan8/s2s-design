@@ -30,7 +30,7 @@ export class StatusWizardComponent implements OnInit {
         isActive = false;
       }
     });
-    console.log(this.statuses);
+    // console.log(this.statuses);
   }
 
 

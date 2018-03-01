@@ -8,6 +8,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class ProvisionComponent implements OnInit {
 
+  @Input('user') user;
   @Input('provision') provision;
 
   constructor(private _router: Router, private _routes: ActivatedRoute) {

@@ -43,6 +43,19 @@ export class MockAPIService implements HttpInterceptor {
         }
       }
 
+      if (req.url.indexOf('/api/users') !== -1 && req.method === 'GET') {
+        if (req.headers.get('Authorization') === 'Bearer s2s-token') {
+          // find user by id in users array
+          const urlParts = req.url.split('/');
+          const type = urlParts[urlParts.length - 1];
+          const matchedUsers = users.filter(user => user.type === type);
+          return Observable.of(new HttpResponse({status: 200, body: matchedUsers.length ? matchedUsers : null}));
+        } else {
+          // return 401 not authorised if token is null or invalid
+          return Observable.throw('Unauthorised');
+        }
+      }
+
       if (req.url.indexOf('/api/user') !== -1 && req.method === 'GET') {
         if (req.headers.get('Authorization') === 'Bearer s2s-token') {
           // find user by id in users array

@@ -5,7 +5,7 @@ import {User} from '../common/account/User';
 @Injectable()
 export class AuthService {
 
-  currentUser;
+  sessionUser;
 
   constructor(private _http: HttpClient) {
   }
@@ -14,7 +14,7 @@ export class AuthService {
     return this._http.post('/api/authenticate', {username: credentials.username, password: credentials.password}).map((user: User) => {
       if (user && user.token) {
         localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUser = user;
+        this.sessionUser = user;
         return user;
       } else {
         return null;
@@ -29,8 +29,12 @@ export class AuthService {
     return false;
   }
 
+  get currentUser() {
+    return this.sessionUser;
+  }
+
   logout() {
     localStorage.removeItem('currentUser');
-    this.currentUser = null;
+    this.sessionUser = null;
   }
 }

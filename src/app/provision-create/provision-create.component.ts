@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Location} from '@angular/common';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-provision-create',
@@ -9,7 +10,9 @@ import {Location} from '@angular/common';
 })
 export class ProvisionCreateComponent implements OnInit {
 
-  constructor(private _location: Location) {
+  user;
+
+  constructor(private _location: Location, private _authService: AuthService) {
   }
 
   provisionCreateForm = new FormGroup({
@@ -31,6 +34,7 @@ export class ProvisionCreateComponent implements OnInit {
 
 
   ngOnInit() {
+    this.user = this._authService.currentUser;
   }
 
 

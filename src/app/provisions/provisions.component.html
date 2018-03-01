@@ -13,24 +13,20 @@
       </button>
     </div>
 
-    <div class="table-responsive" *ngIf="provisions">
+    <div class="table-responsive" *ngIf="user && provisions">
       <table class="table">
         <thead>
         <th>#</th>
-        <th>
-          Provisioning Location
-        <th>Date Created</th>
-        <th>
-          Current status
-        </th>
-        <th>Date Modified</th>
+        <th>Provisioning Location</th>
+        <th *ngIf="user && user.type === 'admin'">Company Name</th>
+        <th>Current status</th>
         <th>Service Type Preferred</th>
         <th>Bandwidth Required</th>
         <th>Action</th>
         </thead>
         <tbody>
         <tr *ngFor="let provision of provisions|search: searchText|pagination : page" app-provision
-            [provision]='provision' class="prvs-row" (click)="goToProvision(provision.id)"></tr>
+            [provision]='provision' [user]="user" class="prvs-row" (click)="goToProvision(provision.id)"></tr>
         </tbody>
       </table>
     </div>

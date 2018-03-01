@@ -18,6 +18,10 @@ export class UserService {
     return this._http.get('/api/user/' + username);
   }
 
+  getAllUsers(type) {
+    return this._http.get('/api/users/' + type);
+  }
+
 
   resetPassword(reqData: any): Observable<any> {
     return of({'posted': true});

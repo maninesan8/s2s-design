@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {GlobalValidator} from '../common/validator/GlobalValidator';
 import {UserService} from '../services/user.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +15,10 @@ export class RegisterComponent implements OnInit {
   registered = false;
   userType: string = null;
 
-  constructor(private _accountService: UserService) {
+  constructor(private _accountService: UserService,
+              private _authService: AuthService,
+              private _router: Router,
+              private _route: ActivatedRoute) {
   }
 
   registerForm = new FormGroup({
@@ -31,12 +36,8 @@ export class RegisterComponent implements OnInit {
 
   registerUser(userInfo) {
     this._accountService.addUser(userInfo).subscribe((response: any) => {
-      if (response && response.type === 'customer') {
-        this.registered = true;
-        this.userType = response.type;
-      } else if (response.type === 'admin') {
-        this.registered = true;
-        this.userType = 'admin';
+      if (response && response.type) {
+        this._router.navigate(['/dash/', this._authService.currentUser.username, 'customers'], {relativeTo: this._route});
       } else {
         this.registerForm.setErrors({isValid: false, message: 'Error in Registering the user. Please try again.'});
       }

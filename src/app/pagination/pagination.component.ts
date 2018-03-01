@@ -30,7 +30,7 @@ export class PaginationComponent implements OnInit {
       }
       this.pages.push({start: startIndex, end: this.size - 1, pageNum: ++pageNum});
     }
-    console.log(this.pages);
+    // console.log(this.pages);
   }
 
   goToPage(page) {

@@ -1,0 +1,57 @@
+<td>{{customer.username}}</td>
+<td [innerHTML]='customer.company | titlecase'></td>
+<td>{{customer.firstName}}</td>
+<td>{{customer.lastName}}</td>
+<td>{{customer.email}}</td>
+<td>
+  <button class="btn btn-outline-primary btn-sm" (click)="open(customerEdit)">Edit</button>
+</td>
+
+<ng-template #customerEdit let-c="close" let-d="dismiss">
+
+  <div class="modal-header">
+    <h4 class="modal-title">Update Customer</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="admin_id">Username</label>
+        <input type="text" class="form-control" id="admin_id" value="{{customer.username}}" disabled>
+      </div>
+      <div class="form-group">
+        <label for="company-name">Company Name</label>
+        <input type="text" class="form-control" id="company-name" value="{{customer.company}}">
+      </div>
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" class="form-control" id="first_name" value="{{customer.firstName}}">
+      </div>
+      <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input type="text" class="form-control" id="last_name" value="{{customer.lastName}}">
+      </div>
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input type="email" class="form-control" id="email" value="{{customer.email}}">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" value="{{customer.password}}">
+      </div>
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm_password" value="{{customer.confirmPassword}}">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <div class="col-md-12 text-center">
+      <button type="button" class="btn btn-primary" (click)="c('Close click')">
+        <span class="fa fa-save fa-lg"></span>Save
+      </button>
+    </div>
+  </div>
+</ng-template>

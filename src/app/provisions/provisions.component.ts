@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ProvisionService} from '../../services/provision.service';
+import {ProvisionService} from '../services/provision.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../environments/environment';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-provisions',
@@ -10,21 +11,21 @@ import {environment} from '../../../environments/environment';
 })
 export class ProvisionsComponent implements OnInit {
 
-  @Input('username') username;
+  user;
   origProvisions;
   provisions;
   searchText;
   page;
-  order;
-  reverse = false;
 
   constructor(private _provisionService: ProvisionService,
               private _router: Router,
-              private _routes: ActivatedRoute) {
+              private _routes: ActivatedRoute, private _authService: AuthService) {
   }
 
   ngOnInit() {
-    this._provisionService.getProvisions(this.username).subscribe((data) => {
+
+    this.user = this._authService.currentUser;
+    this._provisionService.getProvisions(this.user).subscribe((data) => {
       this.origProvisions = data;
       this.provisions = this.origProvisions;
       this.page = {start: 0, end: environment.provision.pageCount - 1};
