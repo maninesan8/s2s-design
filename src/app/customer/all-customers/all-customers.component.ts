@@ -10,6 +10,7 @@ export class AllCustomersComponent implements OnInit {
 
   customers;
   userType = 'customer';
+  searchText;
 
   constructor(private _userService: UserService) {
   }

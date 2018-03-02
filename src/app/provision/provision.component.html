@@ -1,6 +1,6 @@
 <td>{{provision.id}}</td>
 <td [innerHTML]='provision.location | address'></td>
-<td *ngIf="user && user.type === 'admin'">{{user.company}}</td>
+<td *ngIf="user && user.type === 'admin'">{{provision.company}}</td>
 <td>{{provision.status}}</td>
 <td>{{provision.preferredServiceType}}</td>
 <td>{{provision.bandwidth}}</td>

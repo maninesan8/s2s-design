@@ -34,7 +34,7 @@ export class MockAPIService implements HttpInterceptor {
         const filteredUser = users.filter(user => user.username === newUser.username);
         if (!filteredUser.length) {
           newUser.username = newUser.firstName.slice(0, 1).toLowerCase() + newUser.lastName;
-          newUser.type = 'customer';
+          // newUser.type = 'customer';
           users.push(newUser);
           localStorage.setItem('users', JSON.stringify(users));
           return Observable.of(new HttpResponse({status: 200, body: {type: newUser.type}}));

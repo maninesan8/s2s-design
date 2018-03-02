@@ -13,7 +13,7 @@ import {AllCustomersComponent} from '../customer/all-customers/all-customers.com
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent, canActivate: [AuthGuardService], data: {roles: ['admin']}},
+  {path: 'register', component: RegisterComponent},
   {path: 'fgtPassword', component: ForgotPasswordComponent},
   {path: 'resetPassword', component: ResetPasswordComponent},
   {

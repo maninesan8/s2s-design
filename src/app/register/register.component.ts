@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
     email: new FormControl('', [Validators.required, GlobalValidator.emailFormat]),
     password: new FormControl('', [Validators.required]),
     confirmPassword: new FormControl('', [Validators.required]),
-    type: new FormControl('customer', [Validators.required]),
+    type: new FormControl('', [Validators.required]),
     company: new FormControl()
   });
 
@@ -37,7 +37,11 @@ export class RegisterComponent implements OnInit {
   registerUser(userInfo) {
     this._accountService.addUser(userInfo).subscribe((response: any) => {
       if (response && response.type) {
-        this._router.navigate(['/dash/', this._authService.currentUser.username, 'customers'], {relativeTo: this._route});
+        if (this._authService.currentUser) {
+          this._router.navigate(['/dash/', this._authService.currentUser.username, 'customers'], {relativeTo: this._route});
+        } else {
+          this._router.navigate(['/login/']);
+        }
       } else {
         this.registerForm.setErrors({isValid: false, message: 'Error in Registering the user. Please try again.'});
       }
