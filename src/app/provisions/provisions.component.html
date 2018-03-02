@@ -6,7 +6,8 @@
       <label for="search-prov">Search Provision</label>
       <input class="form-control" id="search-prov" type="text" placeholder="location, status, type, dates"
              aria-label="Search"
-             [(ngModel)]="searchText">
+             [(ngModel)]="searchText1"
+      >
 
       <button class="btn btn-primary crt-prv" (click)="goToCreateProvision()">
         <span class="fa fa-list"></span>Create Provision
@@ -22,6 +23,7 @@
         <th>Current status</th>
         <th>Service Type Preferred</th>
         <th>Bandwidth Required</th>
+        <th *ngIf="user && user.type === 'admin'">Date Created</th>
         <th>Action</th>
         </thead>
         <tbody>

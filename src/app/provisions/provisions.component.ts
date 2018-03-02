@@ -43,6 +43,7 @@ export class ProvisionsComponent implements OnInit {
   }
 
   updatePage(page) {
+    console.log(page);
     this.page = page;
   }
 

@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="form-group" >
+            <div class="form-group">
               <label for="city">State</label>
               <select class="form-control" readonly>
                 <option>Select State</option>
@@ -84,21 +84,21 @@
           <label for="bandwidth">Bandwidth Required</label>
           <input type="text" class="form-control" id="bandwidth" value="2TB">
         </div>
-        <div class="row">
-          <div class="col-xs-12">Work Log Information</div>
-        </div>
-        <ng-template ngFor let-workLog [ngForOf]="provision.workLogs">
-          <div class="list-group work-log col-md-12">
-            <a class="list-group-item list-group-item-action flex-column align-items-start" disabled>
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{workLog.createdBy}}</h5>
-                <small>{{workLog.createdDate}}</small>
-              </div>
-              <p class="mb-1">{{workLog.comment}}</p>
-            </a>
-          </div>
-        </ng-template>
       </div>
     </div>
+    <div class="row">
+      <div class="col-xs-12">Work Log Information</div>
+    </div>
+    <ng-template ngFor let-workLog [ngForOf]="provision.workLogs">
+      <div class="list-group work-log col-md-8">
+        <a class="list-group-item list-group-item-action flex-column align-items-start" disabled>
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{workLog.createdBy}}</h5>
+            <small>{{workLog.createdDate}}</small>
+          </div>
+          <p class="mb-1">{{workLog.comment}}</p>
+        </a>
+      </div>
+    </ng-template>
   </form>
 </section>

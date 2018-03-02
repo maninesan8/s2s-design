@@ -8,13 +8,14 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/materialize';
 import 'rxjs/add/operator/dematerialize';
 import {AngularFireDatabase} from 'angularfire2/database';
+import {MockUsers} from '../../assets/data/mock-user';
 
 @Injectable()
 export class MockAPIService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    const users: any[] = JSON.parse(localStorage.getItem('users')) || [];
+    const users: any[] = MockUsers.users || [];
     return Observable.of(null).mergeMap(() => {
       // Authenticates the user for login
       if (req.url.endsWith('api/authenticate') && req.method === 'POST') {

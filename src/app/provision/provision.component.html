@@ -4,6 +4,7 @@
 <td>{{provision.status}}</td>
 <td>{{provision.preferredServiceType}}</td>
 <td>{{provision.bandwidth}}</td>
+<td *ngIf="user && user.type === 'admin'">{{provision.dateCreated}}</td>
 <td>
   <button class="btn btn-outline-primary btn-sm" (click)="goToProvision(provision.id)">Track</button>
 </td>

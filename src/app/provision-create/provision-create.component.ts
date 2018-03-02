@@ -16,7 +16,7 @@ export class ProvisionCreateComponent implements OnInit {
   }
 
   provisionCreateForm = new FormGroup({
-    company: new FormControl('Gibi Systems', [Validators.required]),
+    company: new FormControl('', [Validators.required]),
     addressLine1: new FormControl('', [Validators.required]),
     addressLine2: new FormControl('', [Validators.required]),
     city: new FormControl('', [Validators.required]),
@@ -26,7 +26,7 @@ export class ProvisionCreateComponent implements OnInit {
     dateCreated: new FormControl('02-28-2018', [Validators.required]),
     status: new FormControl('', [Validators.required]),
     dateModified: new FormControl('02-28-2018', [Validators.required]),
-    userId: new FormControl('xyz', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
     serviceTypePreferred: new FormControl('', [Validators.required]),
     bandwidthRequired: new FormControl('', [Validators.required]),
     workLog: new FormControl('', [Validators.required])

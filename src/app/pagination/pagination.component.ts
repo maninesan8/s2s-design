@@ -28,12 +28,13 @@ export class PaginationComponent implements OnInit {
         startIndex = endIndex + 1;
         endIndex = endIndex + pageCnt;
       }
-      this.pages.push({start: startIndex, end: this.size - 1, pageNum: ++pageNum});
+      this.pages.push({startIndex: startIndex, endIndex: this.size - 1, pageNum: ++pageNum});
     }
     // console.log(this.pages);
   }
 
   goToPage(page) {
+    // console.log(page);
     this.pageChange.emit({start: page.startIndex, end: page.endIndex});
   }
 }
