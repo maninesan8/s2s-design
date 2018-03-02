@@ -33,25 +33,25 @@
 <div class="container nav-ctr" *ngIf="user && user.type === 'admin'">
   <div class="row">
     <div class="col-md-12">
-      <button class="btn btn-primary btn-block text-left" (click)="goToProvisions()">
-        <span class="fa fa-table fa-lg"></span>Provisioning Request
-      </button>
+      <a class="btn btn-primary btn-block text-left" (click)="goToProvisions()">
+        <span class="fa fa-table fa-lg"></span>Provisioning Requests
+      </a>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12">
-      <button class="btn btn-primary btn-block text-left" (click)="goToCustomers()">
+      <a class="btn btn-primary btn-block text-left" (click)="goToCustomers()">
         <span class="fa fa-users fa-lg"></span>Customer Information
-      </button>
+      </a>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12">
-      <button class="btn btn-primary btn-block text-left" (click)="goToRegister()">
+      <a class="btn btn-primary btn-block text-left" (click)="goToRegister()">
         <span class="fa fa-user fa-lg"></span>Register User/Customer
-      </button>
+      </a>
     </div>
   </div>
 
