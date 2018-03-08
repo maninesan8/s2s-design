@@ -40,4 +40,5 @@ testem.log
 
 # System Files
 .DS_Store
+.editorconfig
 Thumbs.db
