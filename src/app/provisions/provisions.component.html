@@ -17,12 +17,12 @@
     <div class="table-responsive" *ngIf="user && provisions">
       <table class="table">
         <thead>
-        <th>#</th>
-        <th>Provisioning Location</th>
+        <th>Request #</th>
         <th *ngIf="user && user.type === 'admin'">Company Name</th>
-        <th>Current status</th>
-        <th>Service Type Preferred</th>
-        <th>Bandwidth Required</th>
+        <th>Site ID</th>
+        <th>Service Address</th>
+        <th>Circuit Purpose</th>
+        <th>Current Status</th>
         <th *ngIf="user && user.type === 'admin'">Date Created</th>
         <th>Action</th>
         </thead>
