@@ -21,15 +21,17 @@ export class ProvisionCreateComponent implements OnInit {
     addressLine2: new FormControl('', [Validators.required]),
     city: new FormControl('', [Validators.required]),
     state: new FormControl('', [Validators.required]),
-    postalCode: new FormControl('', [Validators.required]),
-    country: new FormControl('USA', [Validators.required]),
+    zipcode: new FormControl('', [Validators.required]),
+    country: new FormControl({value: 'USA', disabled: true}, [Validators.required]),
     dateCreated: new FormControl('02-28-2018', [Validators.required]),
     status: new FormControl('', [Validators.required]),
-    dateModified: new FormControl('02-28-2018', [Validators.required]),
     email: new FormControl('', [Validators.required]),
-    serviceTypePreferred: new FormControl('', [Validators.required]),
-    bandwidthRequired: new FormControl('', [Validators.required]),
-    workLog: new FormControl('', [Validators.required])
+    circuitPurpose: new FormControl('', [Validators.required]),
+    workLog: new FormControl('', [Validators.required]),
+    siteId: new FormControl('', [Validators.required]),
+    locationPhone: new FormControl('', [Validators.required]),
+    siteContact: new FormControl('', [Validators.required]),
+    siteContactPhone: new FormControl('', [Validators.required])
   });
 
 
@@ -58,8 +60,8 @@ export class ProvisionCreateComponent implements OnInit {
     return this.provisionCreateForm.get('state');
   }
 
-  get postalCode() {
-    return this.provisionCreateForm.get('postalCode');
+  get zipcode() {
+    return this.provisionCreateForm.get('zipcode');
   }
 
   get country() {
@@ -70,10 +72,6 @@ export class ProvisionCreateComponent implements OnInit {
     return this.provisionCreateForm.get('dateCreated');
   }
 
-  get dateModified() {
-    return this.provisionCreateForm.get('dateModified');
-  }
-
   get status() {
     return this.provisionCreateForm.get('status');
   }
@@ -82,12 +80,24 @@ export class ProvisionCreateComponent implements OnInit {
     return this.provisionCreateForm.get('userId');
   }
 
-  get serviceTypePreferred() {
-    return this.provisionCreateForm.get('serviceTypePreferred');
+  get circuitPurpose() {
+    return this.provisionCreateForm.get('circuitPurpose');
   }
 
-  get bandwidthRequired() {
-    return this.provisionCreateForm.get('bandwidthRequired');
+  get siteId() {
+    return this.provisionCreateForm.get('siteId');
+  }
+
+  get locationPhone() {
+    return this.provisionCreateForm.get('locationPhone');
+  }
+
+  get siteContact() {
+    return this.provisionCreateForm.get('siteContact');
+  }
+
+  get siteContactPhone() {
+    return this.provisionCreateForm.get('siteContactPhone');
   }
 
   goBack() {
