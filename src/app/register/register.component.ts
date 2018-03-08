@@ -11,7 +11,8 @@ import {AuthService} from '../services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  defaultType = "customer";
+  defaultCompany = "s2s";
   registered = false;
   userType: string = null;
 

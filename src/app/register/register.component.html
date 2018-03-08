@@ -85,19 +85,24 @@
               </div>
 
               <div [ngClass]="{'form-group': true, 'has-danger' : type.touched && type.invalid}">
-                <label for="password">Customer Type </label>
-                <select formControlName="type" id="type" class="form-control">
-                  <option value="customer">customer</option>
-                  <option value="admin">admin</option>
+                <label for="type">User Type </label>
+                <select formControlName="type" id="type" class="form-control" [(ngModel)]="defaultType">
+                  <option value="customer">Customer</option>
+                  <option value="admin">Admin</option>
                 </select>
               </div>
 
               <div [ngClass]="{'form-group': true, 'has-danger' : company.touched && company.invalid}"
                    *ngIf="type.value === 'customer'">
-                <label for="company">Company </label>
-                <input type="text" id="company" formControlName="company"
-                       class="form-control"
-                       placeholder="enter company name">
+                <label for="company">Company Name</label>
+                <select formControlName="company" id="company" class="form-control" [(ngModel)]="defaultCompany">
+                  <option value="s2s">S2S Communications</option>
+                  <option value="Gibi">Gibi Systems</option>
+                  <option value="Company1">Company1</option>
+                  <option value="Company1">Company XYZ</option>
+                  <option value="Company1">Company ABC</option>
+                  <option value="Company1">Company XXX</option>
+                </select>
               </div>
 
               <div class="form-group">
