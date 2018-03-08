@@ -16,6 +16,8 @@
     "dateCreated": "12-21-2017",
     "dateModified": "01-02-2018",
     "preferredServiceType": "Managed Broadband Service",
+    "siteId": "123",
+    "circuitPurpose": "Primary",
     "workLogs": [
       {
         "createdDate": "12-21-2017",
@@ -40,6 +42,8 @@
     "bandwidth": "22",
     "dateCreated": "11-18-2017",
     "dateModified": "12-02-2017",
+    "siteId": "234",
+    "circuitPurpose": "Primary",
     "preferredServiceType": "Bring Your Own Broadband"
   },
   {
@@ -58,6 +62,8 @@
     "bandwidth": "19",
     "dateCreated": "12-12-2017",
     "dateModified": "01-01-2018",
+    "siteId": "4567",
+    "circuitPurpose": "VoIP",
     "preferredServiceType": "Managed Network Service"
   },
   {
@@ -76,6 +82,8 @@
     "bandwidth": "2",
     "dateCreated": "18-12-2017",
     "dateModified": "24-12-2018",
+    "siteId": "122343",
+    "circuitPurpose": "Other",
     "preferredServiceType": "Managed WiFi Service"
   },
   {
@@ -94,6 +102,8 @@
     "bandwidth": "29",
     "dateCreated": "01-01-2018",
     "dateModified": "01-06-2018",
+    "siteId": "9994123",
+    "circuitPurpose": "Other",
     "preferredServiceType": "Managed Network Service"
   },
   {
@@ -112,6 +122,8 @@
     "bandwidth": "10",
     "dateCreated": "12-21-2017",
     "dateModified": "01-02-2018",
+    "siteId": "234123",
+    "circuitPurpose": "Primary",
     "preferredServiceType": "Managed Broadband Service",
     "workLogs": [
       {
@@ -137,6 +149,8 @@
     "bandwidth": "22",
     "dateCreated": "11-18-2017",
     "dateModified": "12-02-2017",
+    "siteId": "123123",
+    "circuitPurpose": "Primary",
     "preferredServiceType": "Bring Your Own Broadband"
   },
   {
@@ -155,6 +169,8 @@
     "bandwidth": "19",
     "dateCreated": "12-12-2017",
     "dateModified": "01-01-2018",
+    "siteId": "12323",
+    "circuitPurpose": "Other",
     "preferredServiceType": "Managed Network Service"
   },
   {
@@ -173,6 +189,8 @@
     "bandwidth": "2",
     "dateCreated": "18-12-2017",
     "dateModified": "24-12-2018",
+    "siteId": "1342345",
+    "circuitPurpose": "Backup",
     "preferredServiceType": "Managed WiFi Service"
   },
   {
@@ -191,6 +209,8 @@
     "bandwidth": "29",
     "dateCreated": "01-01-2018",
     "dateModified": "01-06-2018",
+    "siteId": "44444",
+    "circuitPurpose": "Other",
     "preferredServiceType": "Managed Network Service"
   },
   {
@@ -209,6 +229,8 @@
     "bandwidth": "29",
     "dateCreated": "01-01-2018",
     "dateModified": "01-06-2018",
+    "siteId": "1234235253",
+    "circuitPurpose": "VoIP",
     "preferredServiceType": "Managed Network Service"
   }
 ]
