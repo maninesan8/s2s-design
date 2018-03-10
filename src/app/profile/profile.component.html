@@ -29,32 +29,6 @@
     </div>
   </div>
 </div>
-<div class="container nav-ctr" *ngIf="user && user.type === 'admin'">
-  <div class="row">
-    <div class="col-md-12">
-      <a class="btn btn-primary btn-block text-left" routerLinkActive="active" routerLink="./provisions">
-        <span class="fa fa-table fa-lg"></span>Provisioning Requests
-      </a>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
-      <a class="btn btn-primary btn-block text-left" routerLink="./customers" routerLinkActive="active">
-        <span class="fa fa-users fa-lg"></span>Customer Information
-      </a>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12">
-      <a class="btn btn-primary btn-block text-left" routerLink="/register" >
-        <span class="fa fa-user fa-lg"></span>Register User/Customer
-      </a>
-    </div>
-  </div>
-
-</div>
 
 <ng-template #profileEdit let-c="close" let-d="dismiss">
 
