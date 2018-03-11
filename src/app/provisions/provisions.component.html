@@ -1,40 +1,39 @@
-<div class="col-lg-12 col-md-9 cnt-provision">
-  <div class="col-xs-12">
-
-    <!--Search Bar to pipes requests -->
-    <div class="form-inline search-ctr">
-      <label for="search-prov">Search Provision</label>
-      <input class="form-control" id="search-prov" type="text" placeholder="location, status, type, dates"
-             aria-label="Search"
-             [(ngModel)]="searchText"
-      >
-
-      <button class="btn btn-primary crt-prv" (click)="goToCreateProvision()">
-        <span class="fa fa-list"></span>Create Request
-      </button>
-    </div>
-
-    <div class="table-responsive" *ngIf="user && provisions">
-      <table class="table">
-        <thead>
-        <th>Request #</th>
-        <th *ngIf="user && user.type === 'admin'">Company Name</th>
-        <th>Site ID</th>
-        <th>Service Address</th>
-        <th>Circuit Purpose</th>
-        <th>Current Status</th>
-        <th *ngIf="user && user.type === 'admin'">Date Created</th>
-        <th>Action</th>
-        </thead>
-        <tbody>
-        <tr *ngFor="let provision of provisions|search: searchText|pagination : page" app-provision
-            [provision]='provision' [user]="user" class="prvs-row" (click)="goToProvision(provision.id)"></tr>
-        </tbody>
-      </table>
-    </div>
-    <!-- Pagination -->
-    <br>
-    <app-pagination [size]="origProvisions.length" [currentPage]="page" *ngIf="origProvisions"
-                    (pageChange)="updatePage($event)"></app-pagination>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-12 col-md-9 cnt-provision">
+          <div class="col-xs-12">
+            <!--Search Bar to pipes requests -->
+            <div class="form-inline search-ctr">
+              <label for="search-prov">Search Provision</label>
+              <input class="form-control" id="search-prov" type="text" placeholder="location, status, type, dates"
+                     aria-label="Search"
+                     [(ngModel)]="searchText"
+              >
+            </div>
+        
+            <div class="table-responsive" *ngIf="user && provisions">
+              <table class="table">
+                <thead>
+                <th>Request #</th>
+                <th *ngIf="user && user.type === 'admin'">Company Name</th>
+                <th>Site ID</th>
+                <th>Service Address</th>
+                <th>Circuit Purpose</th>
+                <th>Current Status</th>
+                <th *ngIf="user && user.type === 'admin'">Date Created</th>
+                <th>Action</th>
+                </thead>
+                <tbody>
+                <tr *ngFor="let provision of provisions|search: searchText|pagination : page" app-provision
+                    [provision]='provision' [user]="user" class="prvs-row" (click)="goToProvision(provision.id)"></tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Pagination -->
+            <br>
+            <app-pagination [size]="origProvisions.length" [currentPage]="page" *ngIf="origProvisions"
+                            (pageChange)="updatePage($event)"></app-pagination>
+          </div>
+        </div>
   </div>
 </div>

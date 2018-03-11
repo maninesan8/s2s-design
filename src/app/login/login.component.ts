@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this._authService.login(credentials).subscribe((user) => {
       // console.log(user);
       if (user && user.type) {
-        this._router.navigate(['dash', user.username]);
+        this._router.navigate(['home']);
       } else {
         this.loginForm.setErrors({isValid: false, message: 'username and password combination doesn\'t match.'});
       }

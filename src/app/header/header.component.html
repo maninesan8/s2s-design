@@ -1,34 +1,38 @@
 <!-- NavBar Start -->
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-  <img class="my-0 mr-md-auto" src="assets/images/header-m.logo.jpg"/>
-  <nav class="my-2 my-md-0 mr-md-3"> 
-      <!-- *ngIf="user && user.type === 'admin'" -->
-      <a class="btn btn-primary text-left hdr-btn" routerLinkActive="active" routerLink="./provisions" >
-        <span class="fa fa-table fa-lg hrd-icon"></span>Provisioning Requests
-      </a>
-      <a class="btn btn-primary text-left hdr-btn" routerLink="./customers" routerLinkActive="active">
-        <span class="fa fa-users fa-lg hrd-icon"></span>Customer Information
-      </a>
-      <a class="btn btn-primary text-left hdr-btn" routerLink="/register" >
-        <span class="fa fa-user fa-lg hrd-icon"></span>Register User/Customer
-      </a>      
+  <img class="my-0 mr-md-auto brnd-logo" src="assets/images/header-m.logo.jpg" routerLinkActive="active" routerLink="/home/dash"
+  />
+  <nav class="my-2 my-md-0 mr-md-3">
+    <!-- *ngIf="user && user.type === 'admin'" -->
+    <button class="btn btn-primary hdr-btn" routerLinkActive="active" routerLink="/home/provisions/create">
+      <span class="fa fa-list"></span>Create Request
+    </button>
+    <a class="btn btn-primary hdr-btn" routerLinkActive="active" routerLink="/home/provisions">
+      <span class="fa fa-table fa-lg hrd-icon"></span>Provisions
+    </a>
+    <a class="btn btn-primary text-left hdr-btn" routerLink="/home/customers" routerLinkActive="active">
+      <span class="fa fa-users fa-lg hrd-icon"></span>Customers
+    </a>
+    <a class="btn btn-primary text-left hdr-btn" routerLink="/register">
+      <span class="fa fa-user fa-lg hrd-icon"></span>Register
+    </a>
   </nav>
 
   <div class="hdr-profile">
     <div class="btn-profile text-primary">
       username
-      <a class="fa-stack fa-lg" routerLink="/register">        
+      <a class="fa-stack fa-lg" routerLink="/register">
         <i class="fa fa-circle-thin fa-stack-2x"></i>
-        <i class="fa fa-user fa-stack-1x"></i>    
+        <i class="fa fa-user fa-stack-1x"></i>
       </a>
     </div>
     <div class="profile-content">
-        <a class="btn btn-primary btn-block btn-sm text-left hdr-btn" routerLinkActive="active" routerLink="./provisions" >
-          <span class="fa fa-edit fa-lg hrd-icon"></span>Edit
-        </a>
-        <a class="btn btn-primary btn-block btn-sm text-left hdr-btn" routerLinkActive="active" routerLink="./provisions" >
-          <span class="fa fa-sign-out fa-lg hrd-icon"></span>Logout
-        </a>
+      <a class="btn btn-primary btn-block btn-sm text-left hdr-btn" routerLinkActive="active" routerLink="./provisions">
+        <span class="fa fa-edit fa-lg hrd-icon"></span>Edit
+      </a>
+      <a class="btn btn-primary btn-block btn-sm text-left hdr-btn" (click)="logout()">
+        <span class="fa fa-sign-out fa-lg hrd-icon"></span>Logout
+      </a>
     </div>
   </div>
 </div>

@@ -8,9 +8,14 @@
   letter-spacing: 2px;
 }
 
-.hrd-icon{
-  margin-right: .5em !important;
+.hdr-btn{
+
+  margin-right: 1em;
+  .hrd-icon{
+    margin-right: .5em !important;
+  }
 }
+
 
 .hdr-profile{
   position: relative;
@@ -36,3 +41,6 @@
   }
 }
 
+.brnd-logo:focus{
+  outline: none !important;
+}
