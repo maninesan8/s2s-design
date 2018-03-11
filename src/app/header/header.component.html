@@ -12,7 +12,7 @@
 
   <ng-template #adminNav>
     <nav class="my-2 my-md-0 mr-md-3">
-      <!-- *ngIf="user && user.type === 'admin'" -->
+      <!-- *ngIf="user && user.role === 'admin'" -->
       <button class="btn btn-primary hdr-btn" routerLinkActive="active" routerLink="/home/provisions/create">
         <span class="fa fa-list"></span>Create Request
       </button>

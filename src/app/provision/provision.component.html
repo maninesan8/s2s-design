@@ -1,10 +1,10 @@
 <td>{{provision.id}}</td>
-<td *ngIf="user && user.type === 'admin'">{{provision.company}}</td>
+<td *ngIf="user && user.role === 'admin'">{{provision.company}}</td>
 <td>{{provision.siteId}}</td>
 <td [innerHTML]='provision.location | address'></td>
 <td>{{provision.circuitPurpose}}</td>
 <td>{{provision.status}}</td>
-<td *ngIf="user && user.type === 'admin'">{{provision.dateCreated}}</td>
+<td *ngIf="user && user.role === 'admin'">{{provision.dateCreated}}</td>
 <td>
   <button class="btn btn-outline-primary btn-sm" (click)="goToProvision(provision.id)">Track Status</button>
 </td>

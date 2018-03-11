@@ -10,17 +10,17 @@
                      [(ngModel)]="searchText"
               >
             </div>
-        
+
             <div class="table-responsive" *ngIf="user && provisions">
               <table class="table">
                 <thead>
                 <th>Request #</th>
-                <th *ngIf="user && user.type === 'admin'">Company Name</th>
+                <th *ngIf="user && user.role === 'admin'">Company Name</th>
                 <th>Site ID</th>
                 <th>Service Address</th>
                 <th>Circuit Purpose</th>
                 <th>Current Status</th>
-                <th *ngIf="user && user.type === 'admin'">Date Created</th>
+                <th *ngIf="user && user.role === 'admin'">Date Created</th>
                 <th>Action</th>
                 </thead>
                 <tbody>

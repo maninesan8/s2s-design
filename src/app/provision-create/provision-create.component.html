@@ -60,7 +60,7 @@
       </div>
       <div class="col-lg-5 col-md-6">
 
-        <div class="form-group" *ngIf="user && user.type==='admin'">
+        <div class="form-group" *ngIf="user && user.role==='admin'">
           <label for="status">Status</label>
           <select class="form-control" [formControlName]="status" id="status">
             <option value="PR">Prequal request received</option>

@@ -35,7 +35,7 @@ export class ProvisionsComponent implements OnInit {
   }
 
   goToProvision(provisionId) {
-    this._router.navigate(['./detail/', provisionId], {relativeTo: this._routes});
+    this._router.navigate(['./', provisionId], {relativeTo: this._routes});
   }
 
   goToCreateProvision() {

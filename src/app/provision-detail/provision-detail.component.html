@@ -4,7 +4,7 @@
     <button type="button" class="btn btn-default" aria-label="Left Align" (click)="goBack()">
       <span class="fa fa-arrow-left fa-lg" aria-hidden="true"></span>Back
     </button>
-    <button type="button" class="btn btn-primary" aria-label="Left Align" *ngIf="user && user.type === 'admin'">
+    <button type="button" class="btn btn-primary" aria-label="Left Align" *ngIf="user && user.role === 'admin'">
       <span class="fa fa-save fa-lg" aria-hidden="true"></span>Save
     </button>
   </div>
