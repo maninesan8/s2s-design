@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ProvisionService} from '../services/provision.service';
 import {Location} from '@angular/common';
 import {AuthService} from '../services/auth.service';
+import {log} from 'util';
 
 @Component({
   selector: 'app-provision-detail',
@@ -28,6 +29,7 @@ export class ProvisionDetailComponent implements OnInit {
       this.provisionId = params.get('id');
       this._provisionService.getProvision(this.provisionId).subscribe((prov) => {
         this.provision = prov;
+        console.log(this.provision);
       });
     });
   }

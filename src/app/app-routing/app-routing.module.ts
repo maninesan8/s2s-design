@@ -21,8 +21,8 @@ const appRoutes: Routes = [
     path: 'home', component: HomeComponent, children: [
       { path: 'dash', component: DashboardComponent },
       { path: 'provisions', component: ProvisionsComponent },
-      { path: 'provisions/:id', component: ProvisionDetailComponent },
       { path: 'provisions/create', component: ProvisionCreateComponent },
+      { path: 'provisions/:id', component: ProvisionDetailComponent },
       { path: 'customers', component: AllCustomersComponent },
       { path: '', redirectTo: 'dash', pathMatch: 'full' }
     ], canActivate: [AuthGuardService], data: { roles: ['customer', 'admin'], header: true }

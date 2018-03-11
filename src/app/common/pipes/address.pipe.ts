@@ -7,7 +7,7 @@ export class AddressPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
 
-    return value.addressLine1 + '<br>' + value.city + ',' + value.state + ' - ' + value.postalCode;
+    return value.addressLine1 + '<br>' + value.city + ',' + value.state + ' - ' + value.zipCode;
   }
 
 }

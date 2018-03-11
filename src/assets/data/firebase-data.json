@@ -27,7 +27,7 @@
         "addressLine2": "suite# 123",
         "city": "charlotte",
         "state": "NC",
-        "postalCode": "28217",
+        "zipCode": "28217",
         "country": "USA"
       },
       "status": "Prequal Request",
@@ -61,7 +61,7 @@
         "addressLine2": "suite# 808",
         "city": "charlotte",
         "state": "NC",
-        "postalCode": "28217",
+        "zipCode": "28217",
         "country": "USA"
       },
       "status": "Quote Provided",
@@ -78,7 +78,7 @@
         "addressLine2": "suite# c",
         "city": "chicago",
         "state": "IL",
-        "postalCode": "60169",
+        "zipCode": "60169",
         "country": "USA"
       },
       "status": "Order Received",
@@ -95,7 +95,7 @@
         "addressLine2": "suite# 7109",
         "city": "charlotte",
         "state": "NC",
-        "postalCode": "28217",
+        "zipCode": "28217",
         "country": "USA"
       },
       "status": "Order Placed with ISP",
@@ -112,7 +112,7 @@
         "addressLine2": "suite# 609",
         "city": "hoffman estates",
         "state": "IL",
-        "postalCode": "60169",
+        "zipCode": "60169",
         "country": "USA"
       },
       "status": "Circuit Installed",

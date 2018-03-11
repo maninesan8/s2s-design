@@ -23,7 +23,6 @@ export class ProvisionsComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.user = this._authService.currentUser;
     this._provisionService.getProvisions(this.user).subscribe((data) => {
       this.origProvisions = data;

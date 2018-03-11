@@ -1,5 +1,5 @@
-<section>
-  <app-status-wizard [status]="provision.status"></app-status-wizard>
+<div class="container">
+  <app-status-wizard *ngIf="provision" [status]="provision.status"></app-status-wizard>
   <div class="row btn-grp">
     <button type="button" class="btn btn-default" aria-label="Left Align" (click)="goBack()">
       <span class="fa fa-arrow-left fa-lg" aria-hidden="true"></span>Back
@@ -8,12 +8,26 @@
       <span class="fa fa-save fa-lg" aria-hidden="true"></span>Save
     </button>
   </div>
-  <form class="container-fluid">
+  <form>
     <div class="row">
-      <div class="col-lg-5 col-md-6">
+      <div class="col-lg-6 col-md-6">
         <div class="form-group">
           <label for="company_name">Company Name</label>
           <input type="text" class="form-control" id="company_name" value="{{provision.company}}" readonly>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="site_id">Site ID*</label>
+              <input type="text" class="form-control" id="site_id" value="{{provision.siteId}}" readonly>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="location_phone">Location Phone #</label>
+              <input type="text" class="form-control" id="location_phone" readonly>
+            </div>
+          </div>
         </div>
         <div class="form-group">
           <label for="address-l1">Address Line1</label>
@@ -35,8 +49,8 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="city">State</label>
-              <select class="form-control" readonly>
+              <label for="state">State</label>
+              <select class="form-control" id="state" readonly>
                 <option>Select State</option>
                 <option value="NC">NC</option>
               </select>
@@ -44,9 +58,9 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="postal-code">Postal Code</label>
-          <input type="text" class="form-control" id="postal-code"
-                 value="{{provision.location.postalCode}}" readonly>
+          <label for="zipCode">Zip Code</label>
+          <input type="text" class="form-control" id="zipCode"
+                 value="{{provision.location.zipCode}}" readonly>
         </div>
         <div class="form-group">
           <label for="country">Country</label>
@@ -54,11 +68,11 @@
                  readonly>
         </div>
       </div>
-      <div class="col-lg-5 col-md-6">
+      <div class="col-lg-6 col-md-6">
 
         <div class="form-group">
           <label for="status">Status</label>
-          <select class="form-control" id="status">
+          <select class="form-control" id="status" readonly>
             <option value="PR">Prequal request received</option>
             <option value="QP">Quote Provided</option>
             <option value="OR">Order Received</option>
@@ -66,23 +80,32 @@
             <option value="CI">Circuit Installed, Details sent to Customer</option>
           </select>
         </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="site_contact">Site Contact</label>
+              <input type="text" class="form-control" id="site_contact" value="{{provision.siteContact}}" readonly>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="site_contact_phone">Site Contact Phone #</label>
+              <input type="text" class="form-control" id="site_contact_phone" value="{{provision.siteContactPhone}}" readonly>
+            </div>
+          </div>
+        </div>
         <div class="form-group">
           <label for="user_id">Created By</label>
           <input type="text" class="form-control" id="user_id" value="{{provision.username}}" readonly>
         </div>
         <div class="form-group">
-          <label for="service_type">Service Type Preferred</label>
-          <select class="form-control form-control" id="service_type" readonly>
-            <option>Select Service</option>
-            <option value="permanent">Managed Broadband Service</option>
-            <option value="permanent">Bring Your Own Broadband</option>
-            <option value="permanent">Managed Network Service</option>
-            <option value="permanent">Managed WiFi Service</option>
+          <label for="circuit_purpose">Circuit Purpose*</label>
+          <select class="form-control form-control" id="circuit_purpose" value="{{provision.circuitPurpose}}" readonly>
+            <option value="Primary">Primary</option>
+            <option value="Backup">Backup</option>
+            <option value="VoIP">VoIP</option>
+            <option value="Other">Other</option>
           </select>
-        </div>
-        <div class="form-group">
-          <label for="bandwidth">Bandwidth Required</label>
-          <input type="text" class="form-control" id="bandwidth" value="2TB">
         </div>
       </div>
     </div>
@@ -103,4 +126,4 @@
       </div>
     </ng-template>
   </form>
-</section>
+</div>
