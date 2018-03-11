@@ -5,8 +5,28 @@
 <td>{{customer.email}}</td>
 <td>
   <button class="btn btn-outline-primary btn-sm" (click)="open(customerEdit)">Edit</button>
-  <button class="btn btn-outline-primary btn-sm">Reset Password</button>
+  <button class="btn btn-outline-primary btn-sm" (click)="open(resetPassword)">Reset Password</button>
 </td>
+
+<ng-template #resetPassword let-c="close" let-d="dismiss">
+
+  <div class="modal-header">
+    <h4 class="modal-title">Reset Password</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Password reset email sent to {{customer.email}} !</p>
+  </div>
+  <div class="modal-footer">
+    <div class="col-md-12 text-center">
+      <button type="button" class="btn btn-danger" (click)="c('Close click')">
+        Close
+      </button>
+    </div>
+  </div>
+</ng-template>
 
 <ng-template #customerEdit let-c="close" let-d="dismiss">
 
