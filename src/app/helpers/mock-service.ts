@@ -35,10 +35,10 @@ export class MockAPIService implements HttpInterceptor {
         const filteredUser = users.filter(user => user.username === newUser.username);
         if (!filteredUser.length) {
           newUser.username = newUser.firstName.slice(0, 1).toLowerCase() + newUser.lastName;
-          // newUser.type = 'customer';
+          // newUser.role = 'customer';
           users.push(newUser);
           localStorage.setItem('users', JSON.stringify(users));
-          return Observable.of(new HttpResponse({status: 200, body: {type: newUser.type}}));
+          return Observable.of(new HttpResponse({status: 200, body: {role: newUser.role}}));
         } else {
           return Observable.throw('User with email address already exists');
         }
@@ -48,8 +48,8 @@ export class MockAPIService implements HttpInterceptor {
         if (req.headers.get('Authorization') === 'Bearer s2s-token') {
           // find user by id in users array
           const urlParts = req.url.split('/');
-          const type = urlParts[urlParts.length - 1];
-          const matchedUsers = users.filter(user => user.type === type);
+          const role = urlParts[urlParts.length - 1];
+          const matchedUsers = users.filter(user => user.role === role);
           return Observable.of(new HttpResponse({status: 200, body: matchedUsers.length ? matchedUsers : null}));
         } else {
           // return 401 not authorised if token is null or invalid

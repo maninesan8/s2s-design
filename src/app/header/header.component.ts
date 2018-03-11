@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../services/storage.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../services/auth.service';
+import {User} from '../common/account/User';
+import {UserStoreService} from '../store/user-store.service';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +11,20 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private _storageService: StorageService, private _router: Router) { }
+  user: User;
+
+  constructor(private  _userStore: UserStoreService,
+              private _authService: AuthService,
+              private _router: Router) {
+  }
 
   ngOnInit() {
+    this._userStore.getUser().subscribe(user => this.user = user);
+    console.log(this.user);
   }
 
   logout() {
-    this._storageService.remove('currentUser');
+    this._authService.logout();
     this._router.navigate(['login']);
   }
 

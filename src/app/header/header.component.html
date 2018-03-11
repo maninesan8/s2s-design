@@ -1,33 +1,44 @@
 <!-- NavBar Start -->
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-  <img class="my-0 mr-md-auto brnd-logo" src="assets/images/header-m.logo.jpg" routerLinkActive="active" routerLink="/home/dash"
+  <img class="my-0 mr-md-auto brnd-logo" src="assets/images/header-m.logo.jpg" routerLinkActive="active"
+       routerLink="/home/dash"
   />
-  <nav class="my-2 my-md-0 mr-md-3">
-    <!-- *ngIf="user && user.type === 'admin'" -->
-    <button class="btn btn-primary hdr-btn" routerLinkActive="active" routerLink="/home/provisions/create">
-      <span class="fa fa-list"></span>Create Request
-    </button>
-    <a class="btn btn-primary hdr-btn" routerLinkActive="active" routerLink="/home/provisions">
-      <span class="fa fa-table fa-lg hrd-icon"></span>Provisions
-    </a>
-    <a class="btn btn-primary text-left hdr-btn" routerLink="/home/customers" routerLinkActive="active">
-      <span class="fa fa-users fa-lg hrd-icon"></span>Customers
-    </a>
-    <a class="btn btn-primary text-left hdr-btn" routerLink="/register">
-      <span class="fa fa-user fa-lg hrd-icon"></span>Register
-    </a>
-  </nav>
 
-  <div class="hdr-profile">
+  <div *ngIf="user && user.role === 'admin'; then adminNav else customer"></div>
+
+  <ng-template>
+
+  </ng-template>
+
+  <ng-template #adminNav>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <!-- *ngIf="user && user.type === 'admin'" -->
+      <button class="btn btn-primary hdr-btn" routerLinkActive="active" routerLink="/home/provisions/create">
+        <span class="fa fa-list"></span>Create Request
+      </button>
+      <a class="btn btn-primary hdr-btn" routerLinkActive="active" routerLink="/home/provisions">
+        <span class="fa fa-table fa-lg hrd-icon"></span>Provisions
+      </a>
+      <a class="btn btn-primary text-left hdr-btn" routerLink="/home/customers" routerLinkActive="active">
+        <span class="fa fa-users fa-lg hrd-icon"></span>Customers
+      </a>
+      <a class="btn btn-primary text-left hdr-btn" routerLink="/register">
+        <span class="fa fa-user fa-lg hrd-icon"></span>Register
+      </a>
+    </nav>
+  </ng-template>
+
+  <div class="hdr-profile" *ngIf="user && user.role">
     <div class="btn-profile text-primary">
-      username
+      {{user.username}}
       <a class="fa-stack fa-lg" routerLink="/register">
         <i class="fa fa-circle-thin fa-stack-2x"></i>
         <i class="fa fa-user fa-stack-1x"></i>
       </a>
     </div>
     <div class="profile-content">
-      <a class="btn btn-primary btn-block btn-sm text-left hdr-btn" routerLinkActive="active" routerLink="./provisions">
+      <a class="btn btn-primary btn-block btn-sm text-left hdr-btn" routerLinkActive="active"
+         routerLink="./provisions">
         <span class="fa fa-edit fa-lg hrd-icon"></span>Edit
       </a>
       <a class="btn btn-primary btn-block btn-sm text-left hdr-btn" (click)="logout()">

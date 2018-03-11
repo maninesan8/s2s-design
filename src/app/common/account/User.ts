@@ -1,6 +1,6 @@
 export class User {
   username: string;
-  type: string;
+  role: string;
   firstName: string;
   lastName: string;
   company: string;
